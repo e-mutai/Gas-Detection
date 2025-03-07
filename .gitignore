@@ -1,2 +1,8 @@
-__pycache__
-env
+# backend specific
+__pycache__/
+*.pyc
+*.db
+env/
+venv/
+.env
+config.py
