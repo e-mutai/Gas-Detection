@@ -1,8 +1,14 @@
-# backend specific
+# Python cache files
 __pycache__/
 *.pyc
-*.db
+# Virtual environments
 env/
 venv/
 .env
+# Database files
+*.db
+# Configuration files
 config.py
+# System-specific files
+.DS_Store
+Thumbs.db
