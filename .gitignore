@@ -1,2 +1,14 @@
-__pycache__
-env
+# Python cache files
+__pycache__/
+*.pyc
+# Virtual environments
+env/
+venv/
+.env
+# Database files
+*.db
+# Configuration files
+config.py
+# System-specific files
+.DS_Store
+Thumbs.db
