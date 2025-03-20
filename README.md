@@ -22,7 +22,7 @@ A real-time combustible gas monitoring system using ESP8266, MQ-6 sensor, and GS
 
 ## Software Requirements
 
-- Python 3.6+
+- Python 3.6
 - Flask and related packages
 - Arduino IDE with ESP8266 support
 - Web browser with JavaScript enabled
