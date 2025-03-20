@@ -24,7 +24,7 @@ def get_sms_config():
     This would be sent to the ESP8266 to configure the GSM module
     """
     return {
-        "recipient_numbers": ["+25492688998"],  # Replace with actual numbers
+        "recipient_numbers": ["+254792688998"],  # Replace with actual numbers
         "alert_threshold": "warning",  # Send SMS for both warning and danger levels
         "include_ppm": True,
         "include_timestamp": True
