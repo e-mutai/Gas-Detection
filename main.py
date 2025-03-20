@@ -2,6 +2,7 @@ from flask import Flask, jsonify, send_from_directory
 from flask_cors import CORS
 from models.gas_readings import init_db, GasReading, Alert, SystemStatus
 from routes.api import api_bp
+from integrations.arduino_cloud_integration import ArduinoCloudIntegration
 import logging
 import os
 
@@ -25,6 +26,9 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 # Initialize the database
 db = init_db(app)
 
+# Initialize Arduino Cloud integration
+arduino_cloud = ArduinoCloudIntegration(app)
+
 # Register blueprints
 app.register_blueprint(api_bp, url_prefix='/api')
 
@@ -39,6 +43,12 @@ def serve_static(path):
     if path == "" or path == "/":
         return send_from_directory(app.static_folder, 'index.html')
     return send_from_directory(app.static_folder, path)
+
+# Add a teardown function to clean up resources
+@app.teardown_appcontext
+def shutdown_arduino_cloud(exception=None):
+    if hasattr(app, 'arduino_cloud') and app.arduino_cloud:
+        app.arduino_cloud.stop()
 
 if __name__ == '__main__':
     # Create database directory if it doesn't exist
