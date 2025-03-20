@@ -12,17 +12,13 @@ class GasReading(db.Model):
     timestamp = db.Column(db.DateTime, default=datetime.utcnow)
     ppm = db.Column(db.Float, nullable=False)
     device_id = db.Column(db.String(50), nullable=False)
-    temperature = db.Column(db.Float, nullable=True)  # Optional sensor data
-    humidity = db.Column(db.Float, nullable=True)     # Optional sensor data
     
     def to_dict(self):
         return {
             "id": self.id,
             "timestamp": self.timestamp.isoformat(),
             "ppm": self.ppm,
-            "device_id": self.device_id,
-            "temperature": self.temperature,
-            "humidity": self.humidity
+            "device_id": self.device_id
         }
 
 class Alert(db.Model):
@@ -33,6 +29,7 @@ class Alert(db.Model):
     is_active = db.Column(db.Boolean, default=True)
     is_acknowledged = db.Column(db.Boolean, default=False)
     notification_sent = db.Column(db.Boolean, default=False)
+    sms_sent = db.Column(db.Boolean, default=False)  # New field for GSM notifications
     
     def to_dict(self):
         return {
@@ -41,7 +38,8 @@ class Alert(db.Model):
             "level": self.level,
             "message": self.message,
             "is_active": self.is_active,
-            "is_acknowledged": self.is_acknowledged
+            "is_acknowledged": self.is_acknowledged,
+            "sms_sent": self.sms_sent
         }
 
 class SystemStatus(db.Model):
@@ -50,8 +48,9 @@ class SystemStatus(db.Model):
     last_update = db.Column(db.DateTime, default=datetime.utcnow)
     is_online = db.Column(db.Boolean, default=True)
     battery_level = db.Column(db.Integer, nullable=True)
-    wifi_strength = db.Column(db.Integer, nullable=True)  # ESP32 specific
+    wifi_strength = db.Column(db.Integer, nullable=True)  # ESP8266 specific
     firmware_version = db.Column(db.String(20), nullable=True)
+    gsm_signal = db.Column(db.Integer, nullable=True)  # New field for GSM signal strength
     
     def to_dict(self):
         return {
@@ -59,6 +58,7 @@ class SystemStatus(db.Model):
             "is_online": self.is_online,
             "battery_level": self.battery_level,
             "wifi_strength": self.wifi_strength,
+            "gsm_signal": self.gsm_signal,
             "firmware_version": self.firmware_version,
             "last_update": self.last_update.isoformat()
         }

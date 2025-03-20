@@ -1,8 +1,8 @@
-from flask import Blueprint, jsonify, request, current_app
+from flask import Blueprint, jsonify, request
 from models.gas_readings import GasReading, Alert, SystemStatus, db
 from datetime import datetime, timedelta
-from utils.gas_utils import get_status_from_ppm
-from utils.notification_service import send_notification
+from utils.gas_utils import get_status_from_ppm, validate_reading
+from utils.notification_service import send_notification, get_sms_config
 import logging
 
 api_bp = Blueprint('api', __name__)
@@ -18,9 +18,7 @@ def current_reading():
     return jsonify({
         "ppm": latest_reading.ppm,
         "status": get_status_from_ppm(latest_reading.ppm),
-        "timestamp": latest_reading.timestamp.isoformat(),
-        "temperature": latest_reading.temperature,
-        "humidity": latest_reading.humidity
+        "timestamp": latest_reading.timestamp.isoformat()
     })
 
 @api_bp.route('/gas-readings')
@@ -37,9 +35,7 @@ def gas_readings():
     return jsonify([{
         "time": reading.timestamp.strftime("%H:%M"),
         "ppm": reading.ppm,
-        "timestamp": reading.timestamp.isoformat(),
-        "temperature": reading.temperature,
-        "humidity": reading.humidity
+        "timestamp": reading.timestamp.isoformat()
     } for reading in readings])
 
 @api_bp.route('/alerts')
@@ -67,7 +63,12 @@ def system_status():
     
     return jsonify(status.to_dict())
 
-# Handle incoming data from Arduino Cloud / ESP32
+@api_bp.route('/gsm-config')
+def gsm_config():
+    """Endpoint for ESP8266 to fetch GSM/SMS configuration"""
+    return jsonify(get_sms_config())
+
+# Handle incoming data from ESP8266 with MQ-6 sensor
 @api_bp.route('/sensor-data', methods=['POST'])
 def receive_sensor_data():
     try:
@@ -78,12 +79,16 @@ def receive_sensor_data():
         
         device_id = data.get('device_id', 'default')
         
+        # Validate reading
+        is_valid, message = validate_reading(data['ppm'])
+        if not is_valid:
+            logging.warning(f"Invalid reading from device {device_id}: {message}")
+            return jsonify({"error": message}), 400
+        
         # Create new reading
         reading = GasReading(
             ppm=data['ppm'],
-            device_id=device_id,
-            temperature=data.get('temperature'),
-            humidity=data.get('humidity')
+            device_id=device_id
         )
         db.session.add(reading)
         
@@ -97,6 +102,7 @@ def receive_sensor_data():
         status.last_update = datetime.utcnow()
         status.battery_level = data.get('battery_level', status.battery_level)
         status.wifi_strength = data.get('wifi_strength', status.wifi_strength)
+        status.gsm_signal = data.get('gsm_signal', status.gsm_signal)
         status.firmware_version = data.get('firmware_version', status.firmware_version)
         
         # Check if we need to create an alert
@@ -109,8 +115,7 @@ def receive_sensor_data():
             db.session.add(alert)
             db.session.commit()  # Commit to get the alert ID
             
-            # Send notification (this will be handled by the hardware as you mentioned, 
-            # but including for completeness)
+            # Log the notification (actual SMS will be sent by ESP8266/GSM module)
             try:
                 send_notification(
                     message=alert.message,
@@ -118,12 +123,22 @@ def receive_sensor_data():
                     data={"ppm": data['ppm'], "device_id": device_id}
                 )
                 alert.notification_sent = True
+                
+                # Mark SMS as queued for sending
+                if data.get('gsm_ready', False):
+                    alert.sms_sent = True
+                
             except Exception as e:
-                logging.error(f"Failed to send notification: {str(e)}")
+                logging.error(f"Failed to process notification: {str(e)}")
         
         db.session.commit()
         
-        return jsonify({"success": True, "reading_id": reading.id})
+        return jsonify({
+            "success": True, 
+            "reading_id": reading.id,
+            "status": gas_status,
+            "should_alert": gas_status in ['warning', 'danger']
+        })
     
     except Exception as e:
         logging.error(f"Error processing sensor data: {str(e)}")
@@ -136,3 +151,16 @@ def acknowledge_alert(alert_id):
     alert.is_acknowledged = True
     db.session.commit()
     return jsonify({"success": True})
+
+# Update GSM SMS status
+@api_bp.route('/alerts/<int:alert_id>/sms-status', methods=['POST'])
+def update_sms_status(alert_id):
+    alert = Alert.query.get_or_404(alert_id)
+    data = request.json
+    
+    if 'sms_sent' in data:
+        alert.sms_sent = data['sms_sent']
+        db.session.commit()
+        return jsonify({"success": True})
+    
+    return jsonify({"error": "Missing sms_sent parameter"}), 400
