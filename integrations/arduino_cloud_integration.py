@@ -22,7 +22,7 @@ class ArduinoCloudIntegration:
             "gas_level": None,      # Property ID for gas level
             "alert_status": None,   # Property ID for alert status
             "device_status": None,  # Property ID for device status
-            "battery_level": None   # Property ID for battery level
+        
         }
         self.sync_thread = None
         self.stop_sync = False
