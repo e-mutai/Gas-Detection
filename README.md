@@ -10,7 +10,6 @@ A real-time combustible gas monitoring system using ESP8266, MQ-6 sensor, and GS
 - **Historical data tracking** with 24-hour gas level charts
 - **Alert management system** with acknowledgment capability
 - **Battery and signal monitoring** for the IoT device
-- **Local audio-visual alerts** via buzzer and LED
 
 ## Hardware Requirements
 
@@ -18,10 +17,8 @@ A real-time combustible gas monitoring system using ESP8266, MQ-6 sensor, and GS
 - MQ-6 Gas Sensor
 - SIM800L GSM Module
 - SIM card with SMS capability
-- Buzzer
-- LED (optional, built-in LED can be used)
 - Power supply (for ESP8266 and GSM module)
-- Jumper wires and breadboard
+- Jumper wires 
 
 ## Software Requirements
 
