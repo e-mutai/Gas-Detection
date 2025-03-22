@@ -6,6 +6,15 @@ from integrations.arduino_cloud_integration import ArduinoCloudIntegration
 import logging
 import os
 
+# Import and load config
+try:
+    from config import load_config
+    load_config()  # Load Arduino Cloud credentials into environment variables
+    config_loaded = True
+except ImportError:
+    config_loaded = False
+    # Config file might not exist in some environments
+    
 # Set up logging
 logging.basicConfig(
     level=logging.INFO,
