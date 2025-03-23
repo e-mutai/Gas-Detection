@@ -66,3 +66,99 @@
 2025-03-20 22:50:07,584 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2025 22:50:07] "GET /api/current-reading HTTP/1.1" 200 -
 2025-03-20 22:50:07,613 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2025 22:50:07] "GET /api/system-status HTTP/1.1" 200 -
 2025-03-20 22:50:07,614 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2025 22:50:07] "GET /api/alerts HTTP/1.1" 200 -
+2025-03-20 22:50:35,620 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2025 22:50:35] "GET /api/gas-readings HTTP/1.1" 200 -
+2025-03-20 22:51:07,694 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2025 22:51:07] "GET /api/current-reading HTTP/1.1" 200 -
+2025-03-20 22:51:07,734 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2025 22:51:07] "GET /api/system-status HTTP/1.1" 200 -
+2025-03-20 22:51:07,735 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2025 22:51:07] "GET /api/alerts HTTP/1.1" 200 -
+2025-03-20 22:52:07,283 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2025 22:52:07] "GET /api/current-reading HTTP/1.1" 200 -
+2025-03-20 22:52:07,607 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2025 22:52:07] "GET /api/system-status HTTP/1.1" 200 -
+2025-03-20 22:52:07,610 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2025 22:52:07] "GET /api/alerts HTTP/1.1" 200 -
+2025-03-20 22:52:07,613 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2025 22:52:07] "GET /api/gas-readings HTTP/1.1" 200 -
+2025-03-20 22:53:07,637 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2025 22:53:07] "GET /api/current-reading HTTP/1.1" 200 -
+2025-03-20 22:53:07,640 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2025 22:53:07] "GET /api/system-status HTTP/1.1" 200 -
+2025-03-20 22:53:07,665 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2025 22:53:07] "GET /api/alerts HTTP/1.1" 200 -
+2025-03-20 22:53:07,674 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2025 22:53:07] "GET /api/gas-readings HTTP/1.1" 200 -
+2025-03-20 22:54:07,305 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2025 22:54:07] "GET /api/current-reading HTTP/1.1" 200 -
+2025-03-20 22:54:07,638 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2025 22:54:07] "GET /api/system-status HTTP/1.1" 200 -
+2025-03-20 22:54:07,640 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2025 22:54:07] "GET /api/alerts HTTP/1.1" 200 -
+2025-03-20 22:54:07,653 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2025 22:54:07] "GET /api/gas-readings HTTP/1.1" 200 -
+2025-03-20 22:55:07,586 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2025 22:55:07] "GET /api/current-reading HTTP/1.1" 200 -
+2025-03-20 22:55:07,611 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2025 22:55:07] "GET /api/alerts HTTP/1.1" 200 -
+2025-03-20 22:55:07,615 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2025 22:55:07] "GET /api/gas-readings HTTP/1.1" 200 -
+2025-03-20 22:55:07,616 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2025 22:55:07] "GET /api/system-status HTTP/1.1" 200 -
+2025-03-20 22:56:07,384 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2025 22:56:07] "GET /api/current-reading HTTP/1.1" 200 -
+2025-03-20 22:56:07,699 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2025 22:56:07] "GET /api/alerts HTTP/1.1" 200 -
+2025-03-20 22:56:07,701 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2025 22:56:07] "GET /api/gas-readings HTTP/1.1" 200 -
+2025-03-20 22:56:07,713 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2025 22:56:07] "GET /api/system-status HTTP/1.1" 200 -
+2025-03-20 22:57:07,637 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2025 22:57:07] "GET /api/current-reading HTTP/1.1" 200 -
+2025-03-20 22:57:07,674 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2025 22:57:07] "GET /api/system-status HTTP/1.1" 200 -
+2025-03-20 22:57:07,675 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2025 22:57:07] "GET /api/alerts HTTP/1.1" 200 -
+2025-03-20 22:57:07,676 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2025 22:57:07] "GET /api/gas-readings HTTP/1.1" 200 -
+2025-03-20 22:58:07,634 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2025 22:58:07] "GET /api/current-reading HTTP/1.1" 200 -
+2025-03-20 22:58:07,638 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2025 22:58:07] "GET /api/system-status HTTP/1.1" 200 -
+2025-03-20 22:58:07,663 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2025 22:58:07] "GET /api/alerts HTTP/1.1" 200 -
+2025-03-20 22:58:07,672 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2025 22:58:07] "GET /api/gas-readings HTTP/1.1" 200 -
+2025-03-20 22:58:20,330 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2025 22:58:20] "GET /api/current-reading HTTP/1.1" 200 -
+2025-03-20 22:58:20,636 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2025 22:58:20] "GET /api/system-status HTTP/1.1" 200 -
+2025-03-20 22:58:20,637 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2025 22:58:20] "GET /api/alerts HTTP/1.1" 200 -
+2025-03-20 22:58:24,828 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2025 22:58:24] "[36mGET / HTTP/1.1[0m" 304 -
+2025-03-20 22:58:24,863 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2025 22:58:24] "GET /api/current-reading HTTP/1.1" 200 -
+2025-03-20 22:58:25,470 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2025 22:58:25] "GET /api/current-reading HTTP/1.1" 200 -
+2025-03-20 22:58:25,803 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2025 22:58:25] "GET /api/system-status HTTP/1.1" 200 -
+2025-03-20 22:58:25,804 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2025 22:58:25] "GET /api/alerts HTTP/1.1" 200 -
+2025-03-20 22:58:25,816 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2025 22:58:25] "GET /api/gas-readings HTTP/1.1" 200 -
+2025-03-20 22:58:35,501 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2025 22:58:35] "[36mGET / HTTP/1.1[0m" 304 -
+2025-03-20 22:58:36,012 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2025 22:58:36] "GET /api/current-reading HTTP/1.1" 200 -
+2025-03-20 22:58:36,342 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2025 22:58:36] "GET /api/gas-readings HTTP/1.1" 200 -
+2025-03-20 22:58:36,411 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2025 22:58:36] "GET /api/alerts HTTP/1.1" 200 -
+2025-03-20 22:58:36,432 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2025 22:58:36] "GET /api/system-status HTTP/1.1" 200 -
+2025-03-20 22:58:46,596 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2025 22:58:46] "GET /api/current-reading HTTP/1.1" 200 -
+2025-03-20 22:58:56,304 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2025 22:58:56] "GET /api/current-reading HTTP/1.1" 200 -
+2025-03-20 22:58:56,601 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2025 22:58:56] "GET /api/system-status HTTP/1.1" 200 -
+2025-03-20 22:58:56,604 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2025 22:58:56] "GET /api/alerts HTTP/1.1" 200 -
+2025-03-20 22:59:06,599 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2025 22:59:06] "GET /api/current-reading HTTP/1.1" 200 -
+2025-03-20 22:59:16,294 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2025 22:59:16] "GET /api/current-reading HTTP/1.1" 200 -
+2025-03-20 22:59:16,614 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2025 22:59:16] "GET /api/alerts HTTP/1.1" 200 -
+2025-03-20 22:59:16,616 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2025 22:59:16] "GET /api/system-status HTTP/1.1" 200 -
+2025-03-20 22:59:26,610 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2025 22:59:26] "GET /api/current-reading HTTP/1.1" 200 -
+2025-03-20 22:59:36,290 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2025 22:59:36] "GET /api/current-reading HTTP/1.1" 200 -
+2025-03-20 22:59:36,614 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2025 22:59:36] "GET /api/system-status HTTP/1.1" 200 -
+2025-03-20 22:59:36,622 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2025 22:59:36] "GET /api/gas-readings HTTP/1.1" 200 -
+2025-03-20 22:59:36,626 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2025 22:59:36] "GET /api/alerts HTTP/1.1" 200 -
+2025-03-20 23:00:07,616 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2025 23:00:07] "GET /api/current-reading HTTP/1.1" 200 -
+2025-03-20 23:00:07,633 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2025 23:00:07] "GET /api/system-status HTTP/1.1" 200 -
+2025-03-20 23:00:07,634 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2025 23:00:07] "GET /api/alerts HTTP/1.1" 200 -
+2025-03-20 23:00:36,291 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2025 23:00:36] "GET /api/gas-readings HTTP/1.1" 200 -
+2025-03-20 23:16:44,122 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2025 23:16:44] "GET /api/gas-readings HTTP/1.1" 200 -
+2025-03-20 23:16:44,201 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2025 23:16:44] "GET /api/system-status HTTP/1.1" 200 -
+2025-03-20 23:16:44,211 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2025 23:16:44] "GET /api/current-reading HTTP/1.1" 200 -
+2025-03-20 23:16:44,240 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2025 23:16:44] "GET /api/alerts HTTP/1.1" 200 -
+2025-03-20 23:17:07,570 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2025 23:17:07] "GET /api/current-reading HTTP/1.1" 200 -
+2025-03-20 23:17:07,571 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2025 23:17:07] "GET /api/system-status HTTP/1.1" 200 -
+2025-03-20 23:17:07,572 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2025 23:17:07] "GET /api/alerts HTTP/1.1" 200 -
+2025-03-20 23:18:07,608 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2025 23:18:07] "GET /api/alerts HTTP/1.1" 200 -
+2025-03-20 23:18:07,609 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2025 23:18:07] "GET /api/system-status HTTP/1.1" 200 -
+2025-03-20 23:18:07,614 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2025 23:18:07] "GET /api/current-reading HTTP/1.1" 200 -
+2025-03-20 23:18:07,615 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2025 23:18:07] "GET /api/gas-readings HTTP/1.1" 200 -
+2025-03-20 23:18:36,253 - integrations.arduino_cloud_integration - WARNING - Arduino Cloud credentials not found. Cloud integration disabled.
+2025-03-20 23:18:36,499 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.8.101:5000
+2025-03-20 23:18:36,504 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-20 23:18:36,509 - werkzeug - INFO -  * Restarting with stat
+2025-03-20 23:18:39,154 - integrations.arduino_cloud_integration - WARNING - Arduino Cloud credentials not found. Cloud integration disabled.
+2025-03-20 23:18:39,384 - werkzeug - WARNING -  * Debugger is active!
+2025-03-20 23:18:39,428 - werkzeug - INFO -  * Debugger PIN: 105-679-367
+2025-03-20 23:19:08,052 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2025 23:19:08] "GET /api/current-reading HTTP/1.1" 200 -
+2025-03-20 23:19:08,063 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2025 23:19:08] "GET /api/system-status HTTP/1.1" 200 -
+2025-03-20 23:19:08,116 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2025 23:19:08] "GET /api/alerts HTTP/1.1" 200 -
+2025-03-20 23:19:08,145 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2025 23:19:08] "GET /api/gas-readings HTTP/1.1" 200 -
+2025-03-20 23:20:07,604 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2025 23:20:07] "GET /api/current-reading HTTP/1.1" 200 -
+2025-03-20 23:20:07,608 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2025 23:20:07] "GET /api/system-status HTTP/1.1" 200 -
+2025-03-20 23:20:07,610 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2025 23:20:07] "GET /api/alerts HTTP/1.1" 200 -
+2025-03-20 23:20:07,630 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2025 23:20:07] "GET /api/gas-readings HTTP/1.1" 200 -
+2025-03-20 23:21:07,624 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2025 23:21:07] "GET /api/current-reading HTTP/1.1" 200 -
+2025-03-20 23:21:07,628 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2025 23:21:07] "GET /api/system-status HTTP/1.1" 200 -
+2025-03-20 23:21:07,629 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2025 23:21:07] "GET /api/alerts HTTP/1.1" 200 -
+2025-03-20 23:21:07,631 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2025 23:21:07] "GET /api/gas-readings HTTP/1.1" 200 -
