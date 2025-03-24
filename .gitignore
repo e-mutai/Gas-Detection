@@ -12,3 +12,5 @@ config.py
 # System-specific files
 .DS_Store
 Thumbs.db
+#log
+gas_monitor.log
