@@ -1721,3 +1721,7 @@
 2025-03-26 21:35:08,027 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 21:35:08] "GET /api/system-status HTTP/1.1" 200 -
 2025-03-26 21:35:08,028 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 21:35:08] "GET /api/alerts HTTP/1.1" 200 -
 2025-03-26 21:35:08,032 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 21:35:08] "GET /api/gas-readings HTTP/1.1" 200 -
+2025-03-26 21:36:08,033 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 21:36:08] "GET /api/current-reading HTTP/1.1" 200 -
+2025-03-26 21:36:08,033 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 21:36:08] "GET /api/system-status HTTP/1.1" 200 -
+2025-03-26 21:36:08,041 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 21:36:08] "GET /api/alerts HTTP/1.1" 200 -
+2025-03-26 21:36:08,042 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 21:36:08] "GET /api/gas-readings HTTP/1.1" 200 -
