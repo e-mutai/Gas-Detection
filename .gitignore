@@ -8,7 +8,7 @@ venv/
 # Database files
 *.db
 # Configuration files
-config.py
+.env.txt
 # System-specific files
 .DS_Store
 Thumbs.db
