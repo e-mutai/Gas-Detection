@@ -63797,3 +63797,95 @@ AttributeError: 'ArduinoIoTDataRetriever' object has no attribute 'thing_name'
 2025-03-28 01:47:15,126 - INFO - [_internal.py:97] -  * Debugger PIN: 106-521-103
 2025-03-28 01:47:17,342 - INFO - [_internal.py:97] -  * Detected change in 'C:\\Users\\eugen\\projects\\Gas-Detection-App\\main.py', reloading
 2025-03-28 01:47:17,574 - INFO - [_internal.py:97] -  * Restarting with stat
+2025-03-28 01:51:11,955 - INFO - [_internal.py:97] - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.8.104:5000
+2025-03-28 01:51:11,955 - INFO - [_internal.py:97] - [33mPress CTRL+C to quit[0m
+2025-03-28 01:51:11,958 - INFO - [_internal.py:97] -  * Restarting with stat
+2025-03-28 01:51:13,122 - WARNING - [_internal.py:97] -  * Debugger is active!
+2025-03-28 01:51:13,141 - INFO - [_internal.py:97] -  * Debugger PIN: 106-521-103
+2025-03-28 01:51:15,033 - INFO - [main.py:221] - Successfully retrieved data from Arduino Cloud
+2025-03-28 01:51:15,048 - INFO - [main.py:209] - Gas reading stored: 0.0 PPM, Status: Safe
+2025-03-28 01:51:15,057 - INFO - [main.py:302] - Successfully collected data in background thread
+2025-03-28 01:51:15,581 - INFO - [main.py:221] - Successfully retrieved data from Arduino Cloud
+2025-03-28 01:51:15,606 - INFO - [main.py:209] - Gas reading stored: 0.0 PPM, Status: Safe
+2025-03-28 01:51:15,618 - INFO - [main.py:302] - Successfully collected data in background thread
+2025-03-28 01:51:18,490 - INFO - [_internal.py:97] - 127.0.0.1 - - [28/Mar/2025 01:51:18] "GET / HTTP/1.1" 200 -
+2025-03-28 01:51:18,816 - INFO - [_internal.py:97] - 127.0.0.1 - - [28/Mar/2025 01:51:18] "GET /api/current-reading HTTP/1.1" 200 -
+2025-03-28 01:51:18,822 - INFO - [_internal.py:97] - 127.0.0.1 - - [28/Mar/2025 01:51:18] "GET /api/alerts HTTP/1.1" 200 -
+2025-03-28 01:51:18,851 - INFO - [_internal.py:97] - 127.0.0.1 - - [28/Mar/2025 01:51:18] "GET /api/gas_readings HTTP/1.1" 200 -
+2025-03-28 01:51:23,807 - INFO - [_internal.py:97] - 127.0.0.1 - - [28/Mar/2025 01:51:23] "GET /api/current-reading HTTP/1.1" 200 -
+2025-03-28 01:51:28,808 - INFO - [_internal.py:97] - 127.0.0.1 - - [28/Mar/2025 01:51:28] "GET /api/current-reading HTTP/1.1" 200 -
+2025-03-28 01:51:28,810 - INFO - [_internal.py:97] - 127.0.0.1 - - [28/Mar/2025 01:51:28] "GET /api/alerts HTTP/1.1" 200 -
+2025-03-28 01:51:34,603 - INFO - [_internal.py:97] - 127.0.0.1 - - [28/Mar/2025 01:51:34] "GET /api/current-reading HTTP/1.1" 200 -
+2025-03-28 01:51:39,604 - INFO - [_internal.py:97] - 127.0.0.1 - - [28/Mar/2025 01:51:39] "GET /api/current-reading HTTP/1.1" 200 -
+2025-03-28 01:51:39,606 - INFO - [_internal.py:97] - 127.0.0.1 - - [28/Mar/2025 01:51:39] "GET /api/alerts HTTP/1.1" 200 -
+2025-03-28 01:51:44,602 - INFO - [_internal.py:97] - 127.0.0.1 - - [28/Mar/2025 01:51:44] "GET /api/current-reading HTTP/1.1" 200 -
+2025-03-28 01:51:49,606 - INFO - [_internal.py:97] - 127.0.0.1 - - [28/Mar/2025 01:51:49] "GET /api/current-reading HTTP/1.1" 200 -
+2025-03-28 01:51:49,609 - INFO - [_internal.py:97] - 127.0.0.1 - - [28/Mar/2025 01:51:49] "GET /api/alerts HTTP/1.1" 200 -
+2025-03-28 01:51:49,613 - INFO - [_internal.py:97] - 127.0.0.1 - - [28/Mar/2025 01:51:49] "GET /api/gas_readings HTTP/1.1" 200 -
+2025-03-28 01:51:54,604 - INFO - [_internal.py:97] - 127.0.0.1 - - [28/Mar/2025 01:51:54] "GET /api/current-reading HTTP/1.1" 200 -
+2025-03-28 01:51:59,602 - INFO - [_internal.py:97] - 127.0.0.1 - - [28/Mar/2025 01:51:59] "GET /api/current-reading HTTP/1.1" 200 -
+2025-03-28 01:51:59,604 - INFO - [_internal.py:97] - 127.0.0.1 - - [28/Mar/2025 01:51:59] "GET /api/alerts HTTP/1.1" 200 -
+2025-03-28 01:52:04,603 - INFO - [_internal.py:97] - 127.0.0.1 - - [28/Mar/2025 01:52:04] "GET /api/current-reading HTTP/1.1" 200 -
+2025-03-28 01:52:09,607 - INFO - [_internal.py:97] - 127.0.0.1 - - [28/Mar/2025 01:52:09] "GET /api/current-reading HTTP/1.1" 200 -
+2025-03-28 01:52:09,608 - INFO - [_internal.py:97] - 127.0.0.1 - - [28/Mar/2025 01:52:09] "GET /api/alerts HTTP/1.1" 200 -
+2025-03-28 01:52:14,606 - INFO - [_internal.py:97] - 127.0.0.1 - - [28/Mar/2025 01:52:14] "GET /api/current-reading HTTP/1.1" 200 -
+2025-03-28 01:52:17,874 - INFO - [main.py:221] - Successfully retrieved data from Arduino Cloud
+2025-03-28 01:52:17,887 - INFO - [main.py:209] - Gas reading stored: 0.0 PPM, Status: Safe
+2025-03-28 01:52:17,890 - INFO - [main.py:302] - Successfully collected data in background thread
+2025-03-28 01:52:18,391 - INFO - [main.py:221] - Successfully retrieved data from Arduino Cloud
+2025-03-28 01:52:18,404 - INFO - [main.py:209] - Gas reading stored: 0.0 PPM, Status: Safe
+2025-03-28 01:52:18,405 - INFO - [main.py:302] - Successfully collected data in background thread
+2025-03-28 01:52:19,610 - INFO - [_internal.py:97] - 127.0.0.1 - - [28/Mar/2025 01:52:19] "GET /api/current-reading HTTP/1.1" 200 -
+2025-03-28 01:52:19,615 - INFO - [_internal.py:97] - 127.0.0.1 - - [28/Mar/2025 01:52:19] "GET /api/alerts HTTP/1.1" 200 -
+2025-03-28 01:52:19,627 - INFO - [_internal.py:97] - 127.0.0.1 - - [28/Mar/2025 01:52:19] "GET /api/gas_readings HTTP/1.1" 200 -
+2025-03-28 01:52:24,602 - INFO - [_internal.py:97] - 127.0.0.1 - - [28/Mar/2025 01:52:24] "GET /api/current-reading HTTP/1.1" 200 -
+2025-03-28 01:52:29,603 - INFO - [_internal.py:97] - 127.0.0.1 - - [28/Mar/2025 01:52:29] "GET /api/current-reading HTTP/1.1" 200 -
+2025-03-28 01:52:29,603 - INFO - [_internal.py:97] - 127.0.0.1 - - [28/Mar/2025 01:52:29] "GET /api/alerts HTTP/1.1" 200 -
+2025-03-28 01:52:49,604 - INFO - [_internal.py:97] - 127.0.0.1 - - [28/Mar/2025 01:52:49] "GET /api/gas_readings HTTP/1.1" 200 -
+2025-03-28 01:53:08,608 - INFO - [_internal.py:97] - 127.0.0.1 - - [28/Mar/2025 01:53:08] "GET /api/current-reading HTTP/1.1" 200 -
+2025-03-28 01:53:08,612 - INFO - [_internal.py:97] - 127.0.0.1 - - [28/Mar/2025 01:53:08] "GET /api/alerts HTTP/1.1" 200 -
+2025-03-28 01:53:19,606 - INFO - [_internal.py:97] - 127.0.0.1 - - [28/Mar/2025 01:53:19] "GET /api/gas_readings HTTP/1.1" 200 -
+2025-03-28 01:53:20,550 - INFO - [main.py:221] - Successfully retrieved data from Arduino Cloud
+2025-03-28 01:53:20,563 - INFO - [main.py:209] - Gas reading stored: 0.0 PPM, Status: Safe
+2025-03-28 01:53:20,564 - INFO - [main.py:302] - Successfully collected data in background thread
+2025-03-28 01:53:21,024 - INFO - [main.py:221] - Successfully retrieved data from Arduino Cloud
+2025-03-28 01:53:21,035 - INFO - [main.py:209] - Gas reading stored: 0.0 PPM, Status: Safe
+2025-03-28 01:53:21,036 - INFO - [main.py:302] - Successfully collected data in background thread
+2025-03-28 01:54:08,612 - INFO - [_internal.py:97] - 127.0.0.1 - - [28/Mar/2025 01:54:08] "GET /api/current-reading HTTP/1.1" 200 -
+2025-03-28 01:54:08,614 - INFO - [_internal.py:97] - 127.0.0.1 - - [28/Mar/2025 01:54:08] "GET /api/alerts HTTP/1.1" 200 -
+2025-03-28 01:54:08,623 - INFO - [_internal.py:97] - 127.0.0.1 - - [28/Mar/2025 01:54:08] "GET /api/gas_readings HTTP/1.1" 200 -
+2025-03-28 01:54:14,602 - INFO - [_internal.py:97] - 127.0.0.1 - - [28/Mar/2025 01:54:14] "GET /api/current-reading HTTP/1.1" 200 -
+2025-03-28 01:54:19,607 - INFO - [_internal.py:97] - 127.0.0.1 - - [28/Mar/2025 01:54:19] "GET /api/current-reading HTTP/1.1" 200 -
+2025-03-28 01:54:19,611 - INFO - [_internal.py:97] - 127.0.0.1 - - [28/Mar/2025 01:54:19] "GET /api/alerts HTTP/1.1" 200 -
+2025-03-28 01:54:19,624 - INFO - [_internal.py:97] - 127.0.0.1 - - [28/Mar/2025 01:54:19] "GET /api/gas_readings HTTP/1.1" 200 -
+2025-03-28 01:54:23,915 - INFO - [main.py:221] - Successfully retrieved data from Arduino Cloud
+2025-03-28 01:54:23,930 - INFO - [main.py:209] - Gas reading stored: 0.0 PPM, Status: Safe
+2025-03-28 01:54:23,932 - INFO - [main.py:302] - Successfully collected data in background thread
+2025-03-28 01:54:24,397 - INFO - [main.py:221] - Successfully retrieved data from Arduino Cloud
+2025-03-28 01:54:24,409 - INFO - [main.py:209] - Gas reading stored: 0.0 PPM, Status: Safe
+2025-03-28 01:54:24,411 - INFO - [main.py:302] - Successfully collected data in background thread
+2025-03-28 01:54:24,603 - INFO - [_internal.py:97] - 127.0.0.1 - - [28/Mar/2025 01:54:24] "GET /api/current-reading HTTP/1.1" 200 -
+2025-03-28 01:54:29,605 - INFO - [_internal.py:97] - 127.0.0.1 - - [28/Mar/2025 01:54:29] "GET /api/current-reading HTTP/1.1" 200 -
+2025-03-28 01:54:29,606 - INFO - [_internal.py:97] - 127.0.0.1 - - [28/Mar/2025 01:54:29] "GET /api/alerts HTTP/1.1" 200 -
+2025-03-28 01:54:34,603 - INFO - [_internal.py:97] - 127.0.0.1 - - [28/Mar/2025 01:54:34] "GET /api/current-reading HTTP/1.1" 200 -
+2025-03-28 01:54:39,604 - INFO - [_internal.py:97] - 127.0.0.1 - - [28/Mar/2025 01:54:39] "GET /api/current-reading HTTP/1.1" 200 -
+2025-03-28 01:54:39,605 - INFO - [_internal.py:97] - 127.0.0.1 - - [28/Mar/2025 01:54:39] "GET /api/alerts HTTP/1.1" 200 -
+2025-03-28 01:54:44,604 - INFO - [_internal.py:97] - 127.0.0.1 - - [28/Mar/2025 01:54:44] "GET /api/current-reading HTTP/1.1" 200 -
+2025-03-28 01:54:49,603 - INFO - [_internal.py:97] - 127.0.0.1 - - [28/Mar/2025 01:54:49] "GET /api/current-reading HTTP/1.1" 200 -
+2025-03-28 01:54:49,606 - INFO - [_internal.py:97] - 127.0.0.1 - - [28/Mar/2025 01:54:49] "GET /api/alerts HTTP/1.1" 200 -
+2025-03-28 01:54:49,633 - INFO - [_internal.py:97] - 127.0.0.1 - - [28/Mar/2025 01:54:49] "GET /api/gas_readings HTTP/1.1" 200 -
+2025-03-28 01:54:54,603 - INFO - [_internal.py:97] - 127.0.0.1 - - [28/Mar/2025 01:54:54] "GET /api/current-reading HTTP/1.1" 200 -
+2025-03-28 01:54:59,615 - INFO - [_internal.py:97] - 127.0.0.1 - - [28/Mar/2025 01:54:59] "GET /api/current-reading HTTP/1.1" 200 -
+2025-03-28 01:54:59,616 - INFO - [_internal.py:97] - 127.0.0.1 - - [28/Mar/2025 01:54:59] "GET /api/alerts HTTP/1.1" 200 -
+2025-03-28 01:55:04,621 - INFO - [_internal.py:97] - 127.0.0.1 - - [28/Mar/2025 01:55:04] "GET /api/current-reading HTTP/1.1" 200 -
+2025-03-28 01:55:09,617 - INFO - [_internal.py:97] - 127.0.0.1 - - [28/Mar/2025 01:55:09] "GET /api/current-reading HTTP/1.1" 200 -
+2025-03-28 01:55:09,619 - INFO - [_internal.py:97] - 127.0.0.1 - - [28/Mar/2025 01:55:09] "GET /api/alerts HTTP/1.1" 200 -
+2025-03-28 01:55:27,236 - INFO - [main.py:221] - Successfully retrieved data from Arduino Cloud
+2025-03-28 01:55:27,250 - INFO - [main.py:209] - Gas reading stored: 0.0 PPM, Status: Safe
+2025-03-28 01:55:27,253 - INFO - [main.py:302] - Successfully collected data in background thread
+2025-03-28 01:55:28,062 - INFO - [main.py:221] - Successfully retrieved data from Arduino Cloud
+2025-03-28 01:55:28,074 - INFO - [main.py:209] - Gas reading stored: 0.0 PPM, Status: Safe
+2025-03-28 01:55:28,076 - INFO - [main.py:302] - Successfully collected data in background thread
