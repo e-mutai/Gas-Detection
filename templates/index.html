@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en" class="light-theme">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gas Detection System Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* Theme variables */
+        :root {
+            /* Light theme (default) */
+            --bg-color: #f8f9fa;
+            --text-color: #333;
+            --panel-bg: #fff;
+            --panel-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            --border-color: #eee;
+            --grid-color: rgba(0, 0, 0, 0.1);
+            --muted-text: #666;
+            --alert-warning-bg: #fff9e6;
+            --alert-warning-border: #ffe8a1;
+            --alert-danger-bg: #ffebee;
+            --alert-danger-border: #ffcdd2;
+            --chart-lines-color: rgba(0, 0, 0, 0.1);
+        }
+
+        /* Dark theme */
+        .dark-theme {
+            --bg-color: #121212;
+            --text-color: #e0e0e0;
+            --panel-bg: #1e1e1e;
+            --panel-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+            --border-color: #333;
+            --grid-color: rgba(255, 255, 255, 0.1);
+            --muted-text: #aaa;
+            --alert-warning-bg: rgba(255, 193, 7, 0.2);
+            --alert-warning-border: #704d00;
+            --alert-danger-bg: rgba(220, 53, 69, 0.2);
+            --alert-danger-border: #721c24;
+            --chart-lines-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Apply theme transitions */
+        * {
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+        }
+        
+        /* Base styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+        
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .header h1 {
+            font-size: 24px;
+            font-weight: 600;
+        }
+        
+        /* Theme toggle */
+        .theme-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            gap: 8px;
+            color: var(--text-color);
+            padding: 6px 10px;
+            border-radius: 20px;
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+        
+        .dark-theme .theme-toggle {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .theme-toggle:hover {
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+        
+        .dark-theme .theme-toggle:hover {
+            background-color: rgba(255, 255, 255, 0.15);
+        }
+        
+        /* Panels */
+        .panel {
+            background: var(--panel-bg);
+            border-radius: 8px;
+            box-shadow: var(--panel-shadow);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .panel-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .panel-title {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--text-color);
+            margin-bottom: 16px;
+        }
+        
+        /* Gas levels display */
+        .gas-reading {
+            font-size: 42px;
+            font-weight: 700;
+            margin: 10px 0;
+            color: var(--text-color);
+        }
+        
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .status-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+        
+        .status-dot.Safe { background-color: #28a745; }
+        .status-dot.Warning { background-color: #ffc107; }
+        .status-dot.Danger { background-color: #dc3545; }
+        
+        .status-text {
+            font-weight: 500;
+        }
+        
+        /* System status */
+        .system-info-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+        
+        .system-info-row:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Chart */
+        .chart-container {
+            width: 100%;
+            height: 300px;
+            position: relative;
+        }
+        
+        /* Alerts panel */
+        .alerts-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .alert {
+            border-radius: 6px;
+            padding: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .alert-Warning {
+            background-color: var(--alert-warning-bg);
+            border: 1px solid var(--alert-warning-border);
+        }
+        
+        .alert-Danger {
+            background-color: var(--alert-danger-bg);
+            border: 1px solid var(--alert-danger-border);
+        }
+        
+        .alert-time {
+            color: var(--muted-text);
+            font-size: 14px;
+        }
+        
+        /* No alerts message */
+        .no-alerts {
+            color: var(--muted-text);
+            font-style: italic;
+        }
+        
+        /* Button styles */
+        .btn {
+            padding: 8px 16px;
+            border-radius: 4px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        
+        .btn:hover {
+            background-color: #0069d9;
+        }
+        
+        .btn-acknowledge {
+            padding: 4px 8px;
+            font-size: 12px;
+            background-color: #6c757d;
+        }
+        
+        .btn-acknowledge:hover {
+            background-color: #5a6268;
+        }
+        
+        @media (max-width: 768px) {
+            .panel-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .theme-toggle span {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>Gas Detection System Dashboard</h1>
+            <button id="theme-toggle" class="theme-toggle">
+                <svg id="moon-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+                <svg id="sun-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+                <span id="theme-text">Dark Mode</span>
+            </button>
+        </div>
+        
+        <!-- Current Gas Level and System Status -->
+        <div class="panel-grid">
+            <!-- Current Gas Level Panel -->
+            <div class="panel">
+                <h2 class="panel-title">Current Gas Levels</h2>
+                <div class="gas-reading" id="gas-level">-- PPM</div>
+                <div class="status-indicator">
+                    <div class="status-dot" id="status-dot"></div>
+                    <span class="status-text" id="status-text">Loading...</span>
+                </div>
+            </div>
+            
+            <!-- System Status Panel -->
+            <div class="panel">
+                <h2 class="panel-title">System Status</h2>
+                <div class="system-info-row">
+                    <div class="status-dot" id="system-dot"></div>
+                    <span id="system-text">Checking connection...</span>
+                </div>
+                <div id="last-update-container" class="system-info-row" style="margin-top: 10px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 16 14"></polyline>
+                    </svg>
+                    <span id="last-update">Last update: --</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Gas Level Chart -->
+        <div class="panel">
+            <h2 class="panel-title">24 Hour Gas Levels</h2>
+            <div class="chart-container">
+                <canvas id="gasChart"></canvas>
+            </div>
+        </div>
+        
+        <!-- Alerts Panel -->
+        <div class="panel">
+            <h2 class="panel-title">Active Alerts</h2>
+            <div class="alerts-container" id="alerts-container">
+                <!-- Alerts will be populated here -->
+                <p class="no-alerts">No active alerts</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Theme management
+        const htmlElement = document.documentElement;
+        const themeToggle = document.getElementById('theme-toggle');
+        const moonIcon = document.getElementById('moon-icon');
+        const sunIcon = document.getElementById('sun-icon');
+        const themeText = document.getElementById('theme-text');
+        let chartInstance = null;
+        
+        // Initialize theme from localStorage
+        function initTheme() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                htmlElement.classList.add('dark-theme');
+                moonIcon.style.display = 'none';
+                sunIcon.style.display = 'block';
+                themeText.textContent = 'Light Mode';
+            }
+        }
+        
+        // Toggle theme
+        function toggleTheme() {
+            if (htmlElement.classList.contains('dark-theme')) {
+                // Switch to light theme
+                htmlElement.classList.remove('dark-theme');
+                moonIcon.style.display = 'block';
+                sunIcon.style.display = 'none';
+                themeText.textContent = 'Dark Mode';
+                localStorage.setItem('theme', 'light');
+            } else {
+                // Switch to dark theme
+                htmlElement.classList.add('dark-theme');
+                moonIcon.style.display = 'none';
+                sunIcon.style.display = 'block';
+                themeText.textContent = 'Light Mode';
+                localStorage.setItem('theme', 'dark');
+            }
+            
+            // Update chart theme if chart exists
+            if (chartInstance) {
+                updateChartTheme();
+            }
+        }
+        
+        // Add event listener to theme toggle
+        themeToggle.addEventListener('click', toggleTheme);
+        
+        // Call init on page load
+        initTheme();
+        
+        // Update chart theme
+        function updateChartTheme() {
+            const isDark = htmlElement.classList.contains('dark-theme');
+            
+            // Update chart grid colors
+            chartInstance.options.scales.y.grid.color = isDark ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)';
+            chartInstance.options.scales.x.grid.color = isDark ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)';
+            
+            // Update label colors
+            chartInstance.options.scales.y.ticks.color = isDark ? '#e0e0e0' : '#666';
+            chartInstance.options.scales.x.ticks.color = isDark ? '#e0e0e0' : '#666';
+            
+            // Update title color
+            if (chartInstance.options.plugins.title) {
+                chartInstance.options.plugins.title.color = isDark ? '#e0e0e0' : '#666';
+            }
+            
+            // Update legend color
+            if (chartInstance.options.plugins.legend) {
+                chartInstance.options.plugins.legend.labels.color = isDark ? '#e0e0e0' : '#666';
+            }
+            
+            chartInstance.update();
+        }
+        
+        // Initialize Chart
+        function initChart() {
+            const ctx = document.getElementById('gasChart').getContext('2d');
+            const isDark = htmlElement.classList.contains('dark-theme');
+            
+            chartInstance = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: [],
+                    datasets: [{
+                        label: 'Gas Level (PPM)',
+                        data: [],
+                        borderColor: 'rgb(75, 192, 192)',
+                        backgroundColor: 'rgba(75, 192, 192, 0.1)',
+                        fill: true,
+                        tension: 0.3,
+                        pointRadius: 3
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: {
+                                color: isDark ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)'
+                            },
+                            ticks: {
+                                color: isDark ? '#e0e0e0' : '#666'
+                            }
+                        },
+                        x: {
+                            grid: {
+                                color: isDark ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)'
+                            },
+                            ticks: {
+                                color: isDark ? '#e0e0e0' : '#666'
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            labels: {
+                                color: isDark ? '#e0e0e0' : '#666'
+                            }
+                        }
+                    }
+                }
+            });
+            
+            return chartInstance;
+        }
+        
+        // Format date for display
+        function formatDateTime(dateTimeStr) {
+            const date = new Date(dateTimeStr);
+            return date.toLocaleString();
+        }
+        
+        // Fetch current gas reading
+        function fetchCurrentReading() {
+            fetch('/api/current-reading')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    // Update gas level display
+                    document.getElementById('gas-level').textContent = `${parseFloat(data.gas_level).toFixed(1)} PPM`;
+                    
+                    // Update status indicator
+                    const statusDot = document.getElementById('status-dot');
+                    const statusText = document.getElementById('status-text');
+                    
+                    statusDot.className = 'status-dot';
+                    statusDot.classList.add(data.status);
+                    statusText.textContent = data.status;
+                    
+                    // Update system status - we'll assume system is online if we get data
+                    document.getElementById('system-dot').className = 'status-dot Safe';
+                    document.getElementById('system-text').textContent = 'System Online';
+                    
+                    // Update last update time
+                    document.getElementById('last-update').textContent = 
+                        `Last update: ${formatDateTime(data.timestamp)}`;
+                })
+                .catch(error => {
+                    console.error('Error fetching current reading:', error);
+                    // If error, show offline status
+                    document.getElementById('system-dot').className = 'status-dot Danger';
+                    document.getElementById('system-text').textContent = 'System Offline';
+                });
+        }
+        
+        // Fetch historical gas readings for chart
+        function fetchHistoricalData() {
+            fetch('/api/gas_readings')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    // Process data for chart - readings are already sorted newest first
+                    const labels = [];
+                    const values = [];
+                    
+                    // We want oldest first for the chart, so reverse and limit to 24 points
+                    const chartData = [...data].reverse().slice(0, 24);
+                    
+                    chartData.forEach(reading => {
+                        const date = new Date(reading.timestamp);
+                        const timeLabel = date.toLocaleTimeString([], { 
+                            hour: '2-digit', 
+                            minute: '2-digit'
+                        });
+                        
+                        labels.push(timeLabel);
+                        values.push(reading.gas_level);
+                    });
+                    
+                    // Update chart
+                    chartInstance.data.labels = labels;
+                    chartInstance.data.datasets[0].data = values;
+                    chartInstance.update();
+                })
+                .catch(error => {
+                    console.error('Error fetching historical data:', error);
+                });
+        }
+        
+        // Fetch alerts
+        function fetchAlerts() {
+            fetch('/api/alerts')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    const alertsContainer = document.getElementById('alerts-container');
+                    
+                    if (data.length === 0) {
+                        alertsContainer.innerHTML = '<p class="no-alerts">No active alerts</p>';
+                        return;
+                    }
+                    
+                    // Clear container
+                    alertsContainer.innerHTML = '';
+                    
+                    // Add alerts
+                    data.forEach(alert => {
+                        const alertElement = document.createElement('div');
+                        alertElement.className = `alert alert-${alert.level}`;
+                        
+                        alertElement.innerHTML = `
+                            <div class="alert-content">
+                                <div>${alert.message}</div>
+                                <div class="alert-time">${formatDateTime(alert.timestamp)}</div>
+                            </div>
+                            <button class="btn btn-acknowledge" data-alert-id="${alert.id}">
+                                Acknowledge
+                            </button>
+                        `;
+                        
+                        alertsContainer.appendChild(alertElement);
+                    });
+                    
+                    // Add event listeners to acknowledge buttons
+                    document.querySelectorAll('.btn-acknowledge').forEach(button => {
+                        button.addEventListener('click', acknowledgeAlert);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching alerts:', error);
+                });
+        }
+        
+        // Acknowledge alert
+        function acknowledgeAlert(event) {
+            const alertId = event.target.dataset.alertId;
+            
+            fetch(`/api/alerts/${alertId}/acknowledge`, {
+                method: 'POST'
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (data.success) {
+                    // Refresh alerts
+                    fetchAlerts();
+                }
+            })
+            .catch(error => {
+                console.error('Error acknowledging alert:', error);
+            });
+        }
+        
+        // Initialize the dashboard
+        function initDashboard() {
+            // Initialize chart
+            chartInstance = initChart();
+            
+            // Fetch initial data
+            fetchCurrentReading();
+            fetchHistoricalData();
+            fetchAlerts();
+            
+            // Set up refresh intervals
+            setInterval(fetchCurrentReading, 5000);     // Every 5 seconds
+            setInterval(fetchHistoricalData, 30000);    // Every 30 seconds
+            setInterval(fetchAlerts, 10000);            // Every 10 seconds
+        }
+        
+        // Initialize when DOM is loaded
+        document.addEventListener('DOMContentLoaded', initDashboard);
+    </script>
+</body>
+</html>

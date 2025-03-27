@@ -25,7 +25,7 @@ def current_reading():
 def gas_readings():
     device_id = request.args.get('device_id', 'default')
     hours = request.args.get('hours', 24, type=int)
-    start_time = datetime.utcnow() - timedelta(hours=hours)
+    start_time = datetime.now(datetime.UTC) - timedelta(hours=hours)
     
     readings = GasReading.query.filter(
         GasReading.timestamp >= start_time,

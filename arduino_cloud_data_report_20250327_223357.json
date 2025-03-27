@@ -1,0 +1,21 @@
+{
+  "timestamp": "2025-03-27T22:33:57.152537",
+  "properties": {
+    "deviceStatus": {
+      "value": "\ud83d\udfe2 Online",
+      "last_updated": "2025-03-27T14:44:24.977Z"
+    },
+    "errorStatus": {
+      "value": "\u26a0\ufe0f No GSM Response",
+      "last_updated": "2025-03-27T14:44:24.977Z"
+    },
+    "gasAlert": {
+      "value": "Gas levels normal",
+      "last_updated": "2025-03-27T14:44:24.977Z"
+    },
+    "gasLevel": {
+      "value": 0.004926626570522785,
+      "last_updated": "2025-03-27T14:52:55.788Z"
+    }
+  }
+}

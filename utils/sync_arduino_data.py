@@ -98,7 +98,7 @@ def sync_data_from_arduino_cloud():
                 db.session.add(status)
 
             status.is_online = is_online
-            status.last_update = datetime.utcnow()
+            status.last_update = datetime.now(datetime.UTC)
             if battery_level is not None:
                 status.battery_level = battery_level
 

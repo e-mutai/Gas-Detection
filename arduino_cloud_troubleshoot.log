@@ -1,0 +1,38 @@
+2025-03-27 22:30:10,768 - INFO: === Starting Comprehensive Arduino Cloud Connection Test ===
+2025-03-27 22:30:10,768 - INFO: === Network Connectivity Check ===
+2025-03-27 22:30:10,773 - DEBUG: Starting new HTTPS connection (1): www.google.com:443
+2025-03-27 22:30:12,018 - DEBUG: https://www.google.com:443 "GET / HTTP/1.1" 200 None
+2025-03-27 22:30:12,023 - INFO: ✅ https://www.google.com is reachable (Status: 200)
+2025-03-27 22:30:12,027 - DEBUG: Starting new HTTPS connection (1): api2.arduino.cc:443
+2025-03-27 22:30:13,400 - DEBUG: https://api2.arduino.cc:443 "GET / HTTP/1.1" 404 0
+2025-03-27 22:30:13,403 - INFO: ✅ https://api2.arduino.cc is reachable (Status: 404)
+2025-03-27 22:30:13,405 - DEBUG: Starting new HTTPS connection (1): cloud.arduino.cc:443
+2025-03-27 22:30:17,170 - DEBUG: https://cloud.arduino.cc:443 "GET / HTTP/1.1" 200 None
+2025-03-27 22:30:17,542 - INFO: ✅ https://cloud.arduino.cc is reachable (Status: 200)
+2025-03-27 22:30:17,544 - INFO: === SSL Certificate Check ===
+2025-03-27 22:30:17,546 - DEBUG: Starting new HTTPS connection (1): api2.arduino.cc:443
+2025-03-27 22:30:18,606 - DEBUG: https://api2.arduino.cc:443 "GET /iot/v1/clients/token HTTP/1.1" 401 65
+2025-03-27 22:30:18,607 - INFO: ✅ SSL Certificate valid for https://api2.arduino.cc/iot/v1/clients/token
+2025-03-27 22:30:18,610 - DEBUG: Starting new HTTPS connection (1): api2.arduino.cc:443
+2025-03-27 22:30:19,822 - DEBUG: https://api2.arduino.cc:443 "GET /iot/v2/things HTTP/1.1" 401 65
+2025-03-27 22:30:19,826 - INFO: ✅ SSL Certificate valid for https://api2.arduino.cc/iot/v2/things
+2025-03-27 22:30:19,828 - DEBUG: Starting new HTTPS connection (1): cloud.arduino.cc:443
+2025-03-27 22:30:21,456 - DEBUG: https://cloud.arduino.cc:443 "GET / HTTP/1.1" 200 None
+2025-03-27 22:30:21,463 - INFO: ✅ SSL Certificate valid for https://cloud.arduino.cc
+2025-03-27 22:30:21,466 - INFO: === OAuth Token Retrieval Test ===
+2025-03-27 22:30:21,466 - INFO: === Checking Environment Variables ===
+2025-03-27 22:30:21,466 - INFO: ✅ Environment variables are set
+2025-03-27 22:30:21,469 - DEBUG: Starting new HTTPS connection (1): api2.arduino.cc:443
+2025-03-27 22:30:23,118 - DEBUG: https://api2.arduino.cc:443 "POST /iot/v1/clients/token HTTP/1.1" 200 627
+2025-03-27 22:30:23,146 - INFO: ✅ Successfully retrieved access token
+2025-03-27 22:30:23,152 - DEBUG: Starting new HTTPS connection (1): api2.arduino.cc:443
+2025-03-27 22:30:24,472 - DEBUG: https://api2.arduino.cc:443 "POST /iot/v1/clients/token HTTP/1.1" 200 627
+2025-03-27 22:30:24,473 - INFO: === Listing Things ===
+2025-03-27 22:30:24,475 - DEBUG: Starting new HTTPS connection (1): api2.arduino.cc:443
+2025-03-27 22:30:25,775 - DEBUG: https://api2.arduino.cc:443 "GET /iot/v2/things HTTP/1.1" 200 913
+2025-03-27 22:30:25,776 - INFO: ✅ Found 2 things in your account
+2025-03-27 22:30:25,776 - INFO: Thing Name: FINAL
+2025-03-27 22:30:25,777 - INFO: Thing ID: e1caaea7-f9ee-448d-bc81-68585c7c7727
+2025-03-27 22:30:25,777 - INFO: Thing Name: mq6gas
+2025-03-27 22:30:25,778 - INFO: Thing ID: ed7a048b-96e7-4bc8-bd7f-45702a84b41d
+2025-03-27 22:30:25,779 - INFO: === Comprehensive Test Complete ===

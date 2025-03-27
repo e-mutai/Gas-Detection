@@ -1,6 +1,7 @@
 # Python cache files
 __pycache__/
 *.pyc
+migrations/
 # Virtual environments
 env/
 venv/
@@ -9,6 +10,9 @@ venv/
 *.db
 # Configuration files
 .env.txt
+tests/
+logs/
+stable-env/
 # System-specific files
 .DS_Store
 Thumbs.db
