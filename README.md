@@ -15,14 +15,14 @@ A real-time combustible gas monitoring system using ESP8266, MQ-6 sensor, and GS
 
 - ESP8266 (NodeMCU or similar)
 - MQ-6 Gas Sensor
-- SIM800L GSM Module
+- SIM900 GSM Module
 - SIM card with SMS capability
 - Power supply (for ESP8266 and GSM module)
 - Jumper wires 
 
 ## Software Requirements
 
-- Python 3.6+
+- Python 3.13+
 - Flask and related packages
 - Arduino IDE with ESP8266 support
 - Web browser with JavaScript enabled
@@ -45,12 +45,6 @@ A real-time combustible gas monitoring system using ESP8266, MQ-6 sensor, and GS
 3. Create necessary directories:
    ```
    mkdir -p data
-   mkdir -p static
-   ```
-
-4. Copy the frontend file:
-   ```
-   # Ensure index.html is in the static directory
    ```
 
 ### ESP8266 Setup
@@ -73,30 +67,16 @@ A real-time combustible gas monitoring system using ESP8266, MQ-6 sensor, and GS
 
 ### Hardware Assembly
 
-1. Connect the MQ-6 sensor to ESP8266:
-   - VCC to 5V
-   - GND to GND
-   - AO to A0 on ESP8266
-
-2. Connect the SIM800L GSM module:
-   - TX to D1 on ESP8266
-   - RX to D2 on ESP8266
-   - GND to GND
-   - VCC to external 3.7-4.2V power source (NOT to ESP8266)
-
-3. Connect the buzzer:
-   - Positive to D3 on ESP8266
-   - Negative to GND
-
-4. Optional: Connect an external LED:
-   - Positive (longer leg) to D4 via a 220Ω resistor
-   - Negative to GND
+1. Connect the MQ-6 sensor to ESP8266
+2. Connect the SIM900 GSM module:
+3. Connect the buzzer
+4. Optional: Connect an external LED
 
 ## Running the System
 
 1. Start the backend server:
    ```
-   python app.py
+   python main.py
    ```
 
 2. Access the dashboard:
@@ -113,7 +93,6 @@ A real-time combustible gas monitoring system using ESP8266, MQ-6 sensor, and GS
 - **System status panel** showing battery level and connectivity
 - **Active alerts panel** with acknowledgment option
 - **Dark/light mode toggle** for comfortable viewing
-- **Settings panel** for customizing server address and refresh intervals
 
 ## API Endpoints
 
