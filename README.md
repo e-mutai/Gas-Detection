@@ -69,7 +69,7 @@ A real-time combustible gas monitoring system using ESP8266, MQ-6 sensor, and GS
 
 1. Connect the MQ-6 sensor to ESP8266
 2. Connect the SIM900 GSM module:
-3. Connect the buzzer
+3. Optional: Connect the buzzer
 4. Optional: Connect an external LED
 
 ## Running the System
