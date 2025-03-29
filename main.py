@@ -4,6 +4,7 @@ import logging
 import threading
 import time
 from datetime import datetime, timedelta
+import pytz  # Add pytz for timezone support
 import requests
 from dotenv import load_dotenv
 
@@ -36,6 +37,9 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
 db = SQLAlchemy(app)
 
+# Define EAT timezone (UTC+3)
+EAT = pytz.timezone('Africa/Nairobi')
+
 # Models
 class GasReading(db.Model):
     __tablename__ = 'gas_readings'
@@ -46,9 +50,11 @@ class GasReading(db.Model):
     status = db.Column(db.String(50), nullable=False)
     
     def to_dict(self):
+        # Convert UTC time to EAT
+        eat_time = pytz.utc.localize(self.timestamp).astimezone(EAT)
         return {
             "id": self.id,
-            "timestamp": self.timestamp.strftime('%Y-%m-%d %H:%M:%S'),
+            "timestamp": eat_time.strftime('%Y-%m-%d %H:%M:%S'),
             "gas_level": self.gas_level,
             "status": self.status
         }
@@ -63,9 +69,11 @@ class Alert(db.Model):
     is_acknowledged = db.Column(db.Boolean, default=False)
     
     def to_dict(self):
+        # Convert UTC time to EAT
+        eat_time = pytz.utc.localize(self.timestamp).astimezone(EAT)
         return {
             "id": self.id,
-            "timestamp": self.timestamp.strftime('%Y-%m-%d %H:%M:%S'),
+            "timestamp": eat_time.strftime('%Y-%m-%d %H:%M:%S'),
             "message": self.message,
             "level": self.level,
             "is_acknowledged": self.is_acknowledged
@@ -109,9 +117,6 @@ class ArduinoCloudIntegration:
         except requests.RequestException as e:
             logger.error(f"Error obtaining Arduino Cloud token: {e}")
             raise
-
-
-
 
     @retry(stop=stop_after_attempt(3), wait=wait_exponential(multiplier=1, min=2, max=10))
     def get_latest_reading(self):
