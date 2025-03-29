@@ -13,6 +13,9 @@ venv/
 tests/
 logs/
 stable-env/
+# Log files
+*.log
 # System-specific files
 .DS_Store
 Thumbs.db
+*.log
