@@ -14,7 +14,8 @@ tests/
 logs/
 stable-env/
 # Log files
-gas_monitor.log
+*.log
 # System-specific files
 .DS_Store
 Thumbs.db
+*.log
