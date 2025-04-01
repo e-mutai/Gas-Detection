@@ -13,7 +13,13 @@ venv/
 tests/
 logs/
 stable-env/
+# Log files
+*.log
 # System-specific files
 .DS_Store
 Thumbs.db
+<<<<<<< HEAD
 gas_detection.log
+=======
+*.log
+>>>>>>> 88fe05c8d67a1da1af9c2c82b5aa82a773780bc9
