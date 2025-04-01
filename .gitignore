@@ -16,3 +16,4 @@ stable-env/
 # System-specific files
 .DS_Store
 Thumbs.db
+gas_detection.log
